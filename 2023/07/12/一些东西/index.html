@@ -155,23 +155,23 @@
 <h3 id="let与const"><a href="#let与const" class="headerlink" title="let与const"></a>let与const</h3><p>传统的var有变量提升，同名可同时存在等问题</p>
 <p>块级声明const与let区别：const不能用在for上</p>
 <h3 id="展开运算符…"><a href="#展开运算符…" class="headerlink" title="展开运算符…"></a>展开运算符…</h3><p>将数组或者对象展开</p>
-<p><code>var a=[1,2,3]</code></p>
-<p><code>console.log(...a)</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a=[1,2,3]</span><br><span class="line"></span><br><span class="line">console.log(...a)</span><br></pre></td></tr></table></figure>
+
 <p>输出[1,2,3]</p>
-<p><code>let person=&#123;</code></p>
-<p>​	<code>id:1,</code></p>
-<p>​	<code>name:&quot;seventeen&quot;</code></p>
-<p><code>&#125;</code></p>
-<p><code>console.log(&#123;...person&#125;)</code></p>
-<p>输出{</p>
-<p>​	id:1,</p>
-<p>​	name:”seventeen”</p>
-<p>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let person=&#123;</span><br><span class="line">	id:1,</span><br><span class="line"></span><br><span class="line">	name:&quot;seventeen&quot;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(&#123;...person&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	id:1,</span><br><span class="line"></span><br><span class="line">	name:&quot;seventeen&quot;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>常用于数组的合并，复制等</p>
 <h3 id="异步async-x2F-await"><a href="#异步async-x2F-await" class="headerlink" title="异步async&#x2F;await"></a>异步async&#x2F;await</h3><p>被async定义的函数会默认返回一个Promise对象和resolve值</p>
 <p>对async函数直接then后返回到的值就是传入的函数</p>
 <p>await只能放在async定义的函数中，意为等待或者阻塞</p>
 <p>await修饰的是Promise对象时，可以返回Promise中的内容（resolve），待拿到值后才会进行后续操作</p>
+<h4 id="http相关的一些知识"><a href="#http相关的一些知识" class="headerlink" title="http相关的一些知识"></a>http相关的一些知识</h4><p>服务器apache（php）</p>
+<p>也可以通过node.js的http服务搭建一个web服务器</p>
+<p>域名  通过DNS服务将IP地址转换成域名，ping <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> 可以查看相应ip同样可以访问到网站</p>
+<p>端口，一个服务器对应多个web服务，80为默认端口http，443为https端口</p>
 <h3 id="96-96"><a href="#96-96" class="headerlink" title="&#96;&#96;"></a>&#96;&#96;</h3>
             </div>
 
