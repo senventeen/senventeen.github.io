@@ -174,12 +174,12 @@
 <p>调用栈：当前执行的代码</p>
 <p>宿主环境：异步代码先放在宿主环境中（如计时2000ms）</p>
 <p>任务队列：在宿主环境中完成异步操作后在任务队列中等待调用栈空闲时，队列中的任务进入调用栈运行</p>
-<p><img src="/2023/08/12/ajax%E5%AD%A6%E4%B9%A0/mytest\source\images\shijianxh.png" alt="shijianxh"></p>
+<p><img src="/images/shijianxh.png" alt="shijianxh"></p>
 <h6 id="宏任务与微任务"><a href="#宏任务与微任务" class="headerlink" title="宏任务与微任务"></a>宏任务与微任务</h6><p>宏任务：由浏览器环境执行的异步代码</p>
 <p>例如：js执行脚本事件，setTimeout&#x2F;setInterval。AJAX请求完成事件，用户交互事件等</p>
 <p>微任务：由js引擎环境执行的异步代码（.then）</p>
 <p>例如：Promise对象.then（）的回调</p>
-<p><img src="/2023/08/12/ajax%E5%AD%A6%E4%B9%A0/mytest\source\images\shaijianxhx.png" alt="shaijianxhx"></p>
+<p><img src="/images/shaijianxhx.png" alt="shaijianxhx"></p>
 <p>优先调动微任务</p>
 <h6 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all"></a>Promise.all</h6><p>合并多个promise对象，等待所有成功做后续逻辑</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//p自身也是个Promise对象，通过.then（）获取结果</span></span><br><span class="line"><span class="keyword">const</span> p=<span class="title class_">Promise</span>.<span class="title function_">all</span>([<span class="title class_">Promise</span>对象<span class="number">1</span>,<span class="title class_">Promise</span>对象<span class="number">2</span>，...])</span><br></pre></td></tr></table></figure>
