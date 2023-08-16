@@ -143,6 +143,14 @@
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
                 <h2 id="Nodejs"><a href="#Nodejs" class="headerlink" title="Nodejs"></a>Nodejs</h2><h5 id="nodejs运行文件"><a href="#nodejs运行文件" class="headerlink" title="nodejs运行文件"></a>nodejs运行文件</h5><p>node index.js</p>
+<p>**url:**统一资源定位符</p>
+<p><strong>端口号</strong>：标记服务器里不同功能的服务程序  &#x2F;&#x2F;http协议默认80端口  3000 8080 web服务</p>
+<p><strong>端口号范围</strong>：0-65535之间    <strong>0-1023</strong>被特定的占用了</p>
+<h4 id="http模块"><a href="#http模块" class="headerlink" title="http模块"></a>http模块</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&#x27;http&#x27;)</span><br><span class="line"></span><br><span class="line">const server = http.createSever()</span><br><span class="line"></span><br><span class="line">server.on(&#x27;requst&#x27;,(req.res)=&gt;&#123;</span><br><span class="line">	//req.url获取资源路径</span><br><span class="line">	//相应内容决定在请求头中设置编码格式 text/html为超文本链接</span><br><span class="line">	res.setHeader(&#x27;Content-Type&#x27;,&#x27;text/plain;charset=utf-8&#x27;)</span><br><span class="line"></span><br><span class="line">	res.end(&quot;欢迎使用node.js和http模块创建的 web服务&quot;)</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.listen(3000,()=&gt;&#123;</span><br><span class="line">	//开始启动</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>localhost：</strong>127.0.0.1</p>
 
             </div>
 
