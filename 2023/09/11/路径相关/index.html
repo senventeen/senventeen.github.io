@@ -137,43 +137,52 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://www.toopic.cn/public/uploads/image/20200407/20200407210027_41805.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >hexo的一些操作＋接口api中的一些点</h2></a>
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://pic4.zhimg.com/v2-c0ecbee38b9f54103d31176d66890838_r.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >路径相关</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <h3 id="hexo操作"><a href="#hexo操作" class="headerlink" title="hexo操作"></a>hexo操作</h3><p>hexo clean清除不必要文件</p>
-<p>hexo g（generate）生成静态文件</p>
-<p>hexo d（deploy）部署网站</p>
-<p>hexo server本地运行</p>
-<p>hexo new[layout] <title> 例如：hexo new  “mytest”</title></p>
-<h3 id="vue传参"><a href="#vue传参" class="headerlink" title="vue传参"></a>vue传参</h3><p>get请求参数是带在url上的，必须使用params</p>
-<p>post请求既可以使用params，也可可以使用data</p>
-<p>区别：data是放在body里的，在url中看不见参数，但是使用params的话，说明参数在url里面是能够看见的</p>
-<p>看得见的参数用params，看不见的用data</p>
-<h3 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h3><p>转义字符&#96;&#96;当中用${}进行拼接</p>
-<h3 id="let与const"><a href="#let与const" class="headerlink" title="let与const"></a>let与const</h3><p>传统的var有变量提升，同名可同时存在等问题</p>
-<p>块级声明const与let区别：const不能用在for上</p>
-<h3 id="展开运算符…"><a href="#展开运算符…" class="headerlink" title="展开运算符…"></a>展开运算符…</h3><p>将数组或者对象展开</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a=[1,2,3]</span><br><span class="line"></span><br><span class="line">console.log(...a)</span><br></pre></td></tr></table></figure>
+                <h3 id="问题缘由"><a href="#问题缘由" class="headerlink" title="问题缘由"></a>问题缘由</h3><p>在我们日常开发中离不开对路径的调用</p>
+<p>有绝对路径，有相对路径，而其中的差别与优劣是需要我们在日常开发中所注意并且在合适的地方使用合适的方式去导入路径</p>
+<h4 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1.基础知识"></a>1.基础知识</h4><ul>
+<li><code>../</code> 代表<strong>父级目录</strong>，连写的话，比如<code>../../</code>表示往上追溯两级目录</li>
+<li><code>./</code> 代表<strong>当前目录</strong>，连写的话无意义</li>
+<li><code>/</code> 代表<strong>网站根目录</strong>，就是服务器www目录</li>
+<li>只写文件名，跟<code>./</code>效果一样]</li>
+</ul>
+<h4 id="1-1HTML文件路径"><a href="#1-1HTML文件路径" class="headerlink" title="1.1HTML文件路径"></a>1.1HTML文件路径</h4><p>文件路径描述了网站文件夹结构中某个文件的位置。</p>
+<p>文件路径会在链接外部文件时被用到：</p>
+<ul>
+<li>网页（组件名,https:&#x2F;&#x2F;）</li>
+<li>图像（<code>&lt;img src=&quot;路径名&quot; /&gt;</code>）</li>
+<li>样式表 <code>css</code></li>
+<li>JavaScript</li>
+</ul>
+<h4 id="2-绝对路径"><a href="#2-绝对路径" class="headerlink" title="2.绝对路径"></a>2.绝对路径</h4><p>绝对路径有三种写法</p>
+<p><strong>第一种：</strong>以盘符开始：</p>
+<p>D：&#x2F;a&#x2F;b</p>
+<p><strong>第二种：</strong>url网址访问：</p>
+<p>https:localhost:8080&#x2F;虚拟项目路径资源&#x2F;项目路径资源</p>
+<p><strong>第三种：</strong>绝对路径是指从文件的<strong>根目录开始</strong>的完整路径。在开发中绝对路径经常以”&#x2F;“开头。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> test <span class="keyword">from</span> ”/api/test.<span class="property">js</span>“ <span class="comment">//这里默认从所在的盘中开始</span></span><br></pre></td></tr></table></figure>
 
-<p>输出[1,2,3]</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let person=&#123;</span><br><span class="line">	id:1,</span><br><span class="line"></span><br><span class="line">	name:&quot;seventeen&quot;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(&#123;...person&#125;)</span><br></pre></td></tr></table></figure>
+<p>参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_41860619/article/details/103568529">web开发中正确使用绝对路径与相对路径_web 绝对路径_大青儿的博客-CSDN博客</a></p>
+<p>2.1在不同环境中”&#x2F;“的意义也不尽相同</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;/&quot;</span> == <span class="string">&quot;http://localhost:8080/&quot;</span>		*<span class="comment">//浏览器眼里* </span></span><br><span class="line"><span class="string">&quot;/&quot;</span> == <span class="string">&quot;http://localhost:8080/myProject/&quot;</span>		*<span class="comment">//web应用眼里*</span></span><br></pre></td></tr></table></figure>
 
-<p>输出</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	id:1,</span><br><span class="line"></span><br><span class="line">	name:&quot;seventeen&quot;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.2在浏览器中，什么时候” &#x2F; “代表” <a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080/</a> “呢</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>jsp里面都是（包括但不局限于以下两种）</span><br><span class="line">	a.超链接:<span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span> = <span class="string">&quot;/a.jsp&quot;</span>&gt;</span>点我点我<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	b.<span class="property">form</span>表单：&lt;form action = <span class="string">&quot;/a.jsp&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>servlet里</span><br><span class="line">	a.重定向的时候：response.<span class="title function_">sendRedirect</span>(<span class="string">&quot;/a.jsp&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<p>常用于数组的合并，复制等</p>
-<h3 id="异步async-x2F-await"><a href="#异步async-x2F-await" class="headerlink" title="异步async&#x2F;await"></a>异步async&#x2F;await</h3><p>被async定义的函数会默认返回一个Promise对象和resolve值</p>
-<p>对async函数直接then后返回到的值就是传入的函数</p>
-<p>await只能放在async定义的函数中，意为等待或者阻塞</p>
-<p>await修饰的是Promise对象时，可以返回Promise中的内容（resolve），待拿到值后才会进行后续操作</p>
-<h4 id="http相关的一些知识"><a href="#http相关的一些知识" class="headerlink" title="http相关的一些知识"></a>http相关的一些知识</h4><p>ip地址服务器apache（php） 127.0.0.1为默认IP地址</p>
-<p>IP地址为 a.b.c.d 都在0-255之间</p>
-<p>也可以通过node.js的http服务搭建一个web服务器</p>
-<p>域名  通过DNS服务将IP地址转换成域名，ping <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> 可以查看相应ip同样可以访问到网站</p>
-<p>端口，一个服务器对应多个web服务，80为默认端口http，443为https端口</p>
-<h3 id="96-96"><a href="#96-96" class="headerlink" title="&#96;&#96;"></a>&#96;&#96;</h3>
+<p>为了不出错，在上诉情况中的路径前面加上：request.getContextPath()</p>
+<p>2.3在web应用中可直接使用</p>
+<h5 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h5><p>事实上，在编程时，很少会使用绝对路径，比如你在Window系统上写了个XX系统，需要使用“E:\book\网页布局\1.jpg”来指定背景图片的位置，在自己的计算机上使用绝对路径浏览可能会一切正常，但是将系统代码文件和背景图文件上传到Web服务器(常常是Linux系统，可能不存在C,D,E盘)上部署系统时浏览就很有可能不会显示图片了。因为上传到Web服务器上时，可能整个系统并没有放在Web服务器的E盘，有可能是D盘或H盘。甚至可能web服务器根本就没有E盘，即使放在Web服务器的E盘里，Web服务器的E盘里也不一定会存在“E:\book\网页布局\1.jpg”这个目录，因此在浏览网页时会找不到该背景图，然后不会显示图片。</p>
+<h4 id="3-相对路径"><a href="#3-相对路径" class="headerlink" title="3.相对路径"></a>3.相对路径</h4><p>在开发过程中因为文件嵌套有时会太深入，于是便有了路径别名。脚手架一般都会将@以src为开头（具体以具体配置为准）</p>
+<p><img src="https://cdn.staticaly.com/gh/senventeen/picx-images-hosting@private/myphoto/image.5y6fqy6acpg0.webp" alt="image"></p>
+<p>以上为在vite.config.js中的配置（vite）</p>
+<p><img src="https://cdn.staticaly.com/gh/senventeen/picx-images-hosting@private/myphoto/image.7l078u52sp80.png" alt="image"></p>
+<p>在webpack中的类似（以上来自webpack官方截图）</p>
+<p>具体可在<a target="_blank" rel="noopener" href="https://webpack.js.org/configuration/resolve/#resolvealias">解决 |网络包 (webpack.js.org)</a>中进行查阅</p>
+
             </div>
 
             <!-- Post Comments -->
@@ -235,8 +244,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://example.com/2023/07/12/%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://example.com/2023/07/12/%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://example.com/2023/09/11/%E8%B7%AF%E5%BE%84%E7%9B%B8%E5%85%B3/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2023/09/11/%E8%B7%AF%E5%BE%84%E7%9B%B8%E5%85%B3/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
