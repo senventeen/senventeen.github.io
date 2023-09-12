@@ -182,6 +182,14 @@
 <p><img src="https://cdn.staticaly.com/gh/senventeen/picx-images-hosting@private/myphoto/image.7l078u52sp80.png" alt="image"></p>
 <p>在webpack中的类似（以上来自webpack官方截图）</p>
 <p>具体可在<a target="_blank" rel="noopener" href="https://webpack.js.org/configuration/resolve/#resolvealias">解决 |网络包 (webpack.js.org)</a>中进行查阅</p>
+<h4 id="4-拓展：vue中img的src动态赋值（本地图片路径）"><a href="#4-拓展：vue中img的src动态赋值（本地图片路径）" class="headerlink" title="4.拓展：vue中img的src动态赋值（本地图片路径）"></a>4.拓展：vue中img的src动态赋值（本地图片路径）</h4><p>4.1问题缘由</p>
+<p>在实验室项目中使用src动态赋值，因为在本地跑的时候路径不会被加工，跑出来的时候图片的地址都没有问题。</p>
+<p>在webpack中的url-loader将直接将字符串解析成字符串（应该打包成base64编码），从而被动态赋值的图片地址没有随着图片本身改变而不能正确加载。</p>
+<p>4.2解决方法</p>
+<p>4.2.1 将文件放在static目录下（与src同级）</p>
+<p>4.2.2 require方法，require（’文件路径’）</p>
+<p>4.2.3 import方法，将图片地址通过import的方法导入后使用</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6ee27c825025">vue中img的src动态赋值（本地图片的路径） - 简书 (jianshu.com)</a></p>
 
             </div>
 
