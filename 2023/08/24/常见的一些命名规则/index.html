@@ -146,9 +146,15 @@
 <p>早期规范，现在不怎么用了…..</p>
 <h3 id="2-驼峰式命名法"><a href="#2-驼峰式命名法" class="headerlink" title="2.驼峰式命名法"></a>2.驼峰式命名法</h3><h5 id="2-1-小驼峰命名法（camelCase）"><a href="#2-1-小驼峰命名法（camelCase）" class="headerlink" title="2.1 小驼峰命名法（camelCase）"></a>2.1 小驼峰命名法（<strong>camelCase</strong>）</h5><p>方法名、参数名、成员变量、局部变量</p>
 <h5 id="2-2-大驼峰命名法（CamelCase）又称帕斯卡命名法"><a href="#2-2-大驼峰命名法（CamelCase）又称帕斯卡命名法" class="headerlink" title="2.2 大驼峰命名法（CamelCase）又称帕斯卡命名法"></a>2.2 大驼峰命名法（<strong>CamelCase</strong>）又称帕斯卡命名法</h5><p>类名，组件名</p>
-<p>在模板中可以通过 <code>&lt;MyComponent&gt;</code> 或 <code>&lt;my-component&gt;</code> 引用</p>
+<p>在模板中可以通过 单文件组件推荐 <code>&lt;MyComponent&gt;</code>  如果直接在dom中书写模板推荐 <code>&lt;my-component&gt;</code> 引用，并且需要显式地关闭<code>&lt;/my-component&gt;</code></p>
 <h3 id="3-下划线命名法-又称蛇形命名法-snake-case"><a href="#3-下划线命名法-又称蛇形命名法-snake-case" class="headerlink" title="3.下划线命名法 又称蛇形命名法(snake_case)"></a>3.下划线命名法 又称蛇形命名法(<strong>snake_case</strong>)</h3><p>例：my_age</p>
 <h3 id="4-串行命名法（kebab-case）"><a href="#4-串行命名法（kebab-case）" class="headerlink" title="4.串行命名法（kebab-case）"></a>4.串行命名法（<strong>kebab-case</strong>）</h3><p>项目文件夹名称</p>
+<p>传递props推荐使用串行命名法，因为这种方法更贴近HTML的书写风格</p>
+<p><strong>常量命名通常用大写加下划线的方式如</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SCENE_GRAVITY = 1; // 常量</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="5-常见的命名参考规范"><a href="#5-常见的命名参考规范" class="headerlink" title="5.常见的命名参考规范"></a>5.常见的命名参考规范</h3><h5 id="1-页面结构"><a href="#1-页面结构" class="headerlink" title="(1)页面结构"></a>(1)页面结构</h5><div>
 
 <p>容器: container</p>

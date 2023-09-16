@@ -178,6 +178,7 @@
 <p>调用栈：当前执行的代码</p>
 <p>宿主环境：异步代码先放在宿主环境中（如计时2000ms）</p>
 <p>任务队列：在宿主环境中完成异步操作后在任务队列中等待调用栈空闲时，队列中的任务进入调用栈运行</p>
+<p>await后调用相当于在.then之后的语句，应当加入微任务队列</p>
 <p><img src="/images/shijianxh.png" alt="shijianxh"></p>
 <h6 id="宏任务与微任务"><a href="#宏任务与微任务" class="headerlink" title="宏任务与微任务"></a>宏任务与微任务</h6><p>宏任务：由浏览器环境执行的异步代码</p>
 <p>例如：js执行脚本事件，setTimeout&#x2F;setInterval。AJAX请求完成事件，用户交互事件等</p>
