@@ -177,9 +177,9 @@
 <p>2.3在web应用中可直接使用</p>
 <h5 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h5><p>事实上，在编程时，很少会使用绝对路径，比如你在Window系统上写了个XX系统，需要使用“E:\book\网页布局\1.jpg”来指定背景图片的位置，在自己的计算机上使用绝对路径浏览可能会一切正常，但是将系统代码文件和背景图文件上传到Web服务器(常常是Linux系统，可能不存在C,D,E盘)上部署系统时浏览就很有可能不会显示图片了。因为上传到Web服务器上时，可能整个系统并没有放在Web服务器的E盘，有可能是D盘或H盘。甚至可能web服务器根本就没有E盘，即使放在Web服务器的E盘里，Web服务器的E盘里也不一定会存在“E:\book\网页布局\1.jpg”这个目录，因此在浏览网页时会找不到该背景图，然后不会显示图片。</p>
 <h4 id="3-相对路径"><a href="#3-相对路径" class="headerlink" title="3.相对路径"></a>3.相对路径</h4><p>在开发过程中因为文件嵌套有时会太深入，于是便有了路径别名。脚手架一般都会将@以src为开头（具体以具体配置为准）</p>
-<p><img src="https://cdn.staticaly.com/gh/senventeen/picx-images-hosting@private/myphoto/image.5y6fqy6acpg0.webp" alt="image"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/senventeen/picx-images-hosting@private/myphoto/image.5y6fqy6acpg0.webp" alt="image"></p>
 <p>以上为在vite.config.js中的配置（vite）</p>
-<p><img src="https://cdn.staticaly.com/gh/senventeen/picx-images-hosting@private/myphoto/image.7l078u52sp80.png" alt="image"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/senventeen/picx-images-hosting@private/myphoto/image.7l078u52sp80.png" alt="image"></p>
 <p>在webpack中的类似（以上来自webpack官方截图）</p>
 <p>具体可在<a target="_blank" rel="noopener" href="https://webpack.js.org/configuration/resolve/#resolvealias">解决 |网络包 (webpack.js.org)</a>中进行查阅</p>
 <h4 id="4-拓展：vue中img的src动态赋值（本地图片路径）"><a href="#4-拓展：vue中img的src动态赋值（本地图片路径）" class="headerlink" title="4.拓展：vue中img的src动态赋值（本地图片路径）"></a>4.拓展：vue中img的src动态赋值（本地图片路径）</h4><p>4.1问题缘由</p>
