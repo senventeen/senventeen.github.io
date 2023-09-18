@@ -142,12 +142,22 @@
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <p>事情缘由：</p>
-<p>在做一个项目中还未对接后端，于是先用mockjs进行模拟。</p>
+                <h3 id="事情缘由："><a href="#事情缘由：" class="headerlink" title="事情缘由："></a>事情缘由：</h3><p>在做一个项目中还未对接后端，于是先用mockjs进行模拟。</p>
 <p>mock是对ajax请求进行一个拦截并且像接口返回数据一样的一种模拟接口返回数据的一个工具，在前端开发中非常常见。</p>
 <p>以下是我在开发时的一个示例代码，一个小demo</p>
-<p><img src="https://cdn.staticaly.com/gh/senventeen/picx-images-hosting@private/myphoto/image.50vfvwkfp6o0.webp" alt="image"></p>
-<p><img src="https://cdn.staticaly.com/gh/senventeen/picx-images-hosting@private/myphoto/image.1mrt7briiyao.webp" alt="image"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/senventeen/picx-images-hosting@private/myphoto/image.50vfvwkfp6o0.webp" alt="image"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/senventeen/picx-images-hosting@private/myphoto/image.1mrt7briiyao.webp" alt="image"></p>
+<p>细心的可以看出来，我们在请求的路径上加上了一个new RegExp（）这个是正则表达式的意思，为什么要用到正则表达式呢?</p>
+<h3 id="问题解释"><a href="#问题解释" class="headerlink" title="问题解释"></a>问题解释</h3><p>这就应该说到我们get请求中的params,params中的参数是会带入路径里面的，也就是代表我们后续的访问路径中在后边会加上 <strong>?参数&#x3D;值&amp;参数&#x3D;值</strong></p>
+<p>也就是说我们的请求路径此时已经与我们在mock中写的路径已经不完全相同了，我们的请求路径中多了参数的拼接。</p>
+<p>此时mock就不能拦截到由程序发出的请求，而我们的请求也同时会变成404。</p>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>所以就有让地址正则化的一个解决方式。</p>
+<p>new RegExp（）相当于给路径的最后加了一个*，也就是可以匹配任何字符串，就是如果前面的地址对上了的话，后续拼接的是什么都能够匹配的到。</p>
+<p>细心的可以看出来，这同时也存在着弊端，因为我们有时候的请求路径可能前者刚好就比后者多一个list或者什么，此时mock对应的路径中，看似不一样的两条路径，此时都会被一个请求给拦截下来。就如图下这种情况。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/senventeen/picx-images-hosting@private/myphoto/image.1oj4g54iz6jk.webp" alt="image"></p>
+<p>下图两种请求路径，但是最终都会被上图第一个mock给拦截。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/senventeen/picx-images-hosting@private/myphoto/image.6zlme2q9xv40.webp" alt="image"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>在修改bug的时候难免会在产生bug，直接new RegExp（）的方法虽然给我们带了很多方便，但是在实际开发中我们其实可以对路径进行更严格的正则匹配要求来避免这种错误的发生。</p>
 
             </div>
 
