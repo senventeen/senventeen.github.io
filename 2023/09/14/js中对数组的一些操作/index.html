@@ -142,8 +142,31 @@
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <p>foreac等等啥的很多</p>
-<p>最近比较忙没时间写</p>
+                <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>闭包是函数中返回一个函数，函数能够访问到其父级作用域，</p>
+<p>优点：保护变量，封装到函数内部，避免全局污染  延长变量的生命周期，即使函数执行完成后还能继续使用 </p>
+<p>缺点：内存占用，无法被垃圾回收 甚至会出现内存泄漏问题 ，闭包会设计到作用域链的查找，对性能也会有影响。</p>
+<p>解决内存泄漏问题 从根本上来说就是对外部变量的引用，如果能够接触对变量的引用，使得其能够被垃圾回收机制释放。当然这只是最明显的，此外还有对闭包函数以及解绑函数本身的一个释放。使该变量&#x3D;null进行释放</p>
+<h3 id="数据类型判断有四种方式"><a href="#数据类型判断有四种方式" class="headerlink" title="数据类型判断有四种方式"></a>数据类型判断有四种方式</h3><p>直接的有type of跟instanceof 前者主要是判断基本数据类型（除了null，null会判断成object）引用类型都会判断成object，除了function会被正常判断，instanceof的返回值是true或者false，相反它不能判断基本数据类型（都会返回false），只能判断引用类型。</p>
+<p>原型中的判断方式 Object.prototype.toString.call，调用slice（8，-1）就能获取到类型，均能获得</p>
+<p>构造函数的name属性也可以进行判断</p>
+<h3 id="7中基本数据类型"><a href="#7中基本数据类型" class="headerlink" title="7中基本数据类型"></a>7中基本数据类型</h3><p>Number,String,null,BigInt,Symbol,Boolean,Undefined</p>
+<p>放入栈内存中</p>
+<h3 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h3><p>Object，Array，Date，Error，Function，RegExp</p>
+<p>放入堆内存中 在栈中存储了指针在堆中的起始位置。</p>
+<p>generator函数生成器</p>
+<p>function* yield 生成迭代器 next调用 </p>
+<p>浏览器工作原理</p>
+<h3 id="浏览器本地存储"><a href="#浏览器本地存储" class="headerlink" title="浏览器本地存储"></a>浏览器本地存储</h3><p>cookie localstorage，sessionstorage，indexdDB</p>
+<p>发布-订阅模式</p>
+<h3 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h3><p>导航守卫有三类：全局守卫 路由独享守卫和组件内守卫（钩子）</p>
+<p>两种历史记录模式</p>
+<p>前端路由关键：</p>
+<p>1可以修改url，在不刷新页面的情况下跳转路由</p>
+<p>2可以监听url的变化，根据url渲染对应组件</p>
+<p>hash模式 hash是通过location API修改url的   通过onhashchange监听hash改变</p>
+<p>#后面的字符不会发送给服务器 seo（Search Engine Optimization搜索引擎优化）会比较差（没这么容易搜索到） 不会在服务器生成日志记录</p>
+<p>HTML5模式 history是通过history.pushState或者history.replacestate修改url   通过popState监听</p>
+<p>相比来说不带#号 直接在域名后写路径 优雅</p>
 
             </div>
 
