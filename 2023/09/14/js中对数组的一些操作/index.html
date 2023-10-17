@@ -146,7 +146,9 @@
 <p>优点：保护变量，封装到函数内部，避免全局污染  延长变量的生命周期，即使函数执行完成后还能继续使用 </p>
 <p>缺点：内存占用，无法被垃圾回收 甚至会出现内存泄漏问题 ，闭包会设计到作用域链的查找，对性能也会有影响。</p>
 <p>解决内存泄漏问题 从根本上来说就是对外部变量的引用，如果能够接触对变量的引用，使得其能够被垃圾回收机制释放。当然这只是最明显的，此外还有对闭包函数以及解绑函数本身的一个释放。使该变量&#x3D;null进行释放</p>
-<h3 id="数据类型判断有四种方式"><a href="#数据类型判断有四种方式" class="headerlink" title="数据类型判断有四种方式"></a>数据类型判断有四种方式</h3><p>直接的有type of跟instanceof 前者主要是判断基本数据类型（除了null，null会判断成object）引用类型都会判断成object，除了function会被正常判断，instanceof的返回值是true或者false，相反它不能判断基本数据类型（都会返回false），只能判断引用类型。</p>
+<h3 id="数据类型判断有四种方式"><a href="#数据类型判断有四种方式" class="headerlink" title="数据类型判断有四种方式"></a>数据类型判断有四种方式</h3><p>直接的有type of跟instanceof </p>
+<p>前者主要是判断基本数据类型（除了null，null会判断成object）引用类型都会判断成object，除了function会被正常判断，</p>
+<p>instanceof的返回值是true或者false，相反它不能判断基本数据类型（都会返回false），只能判断引用类型。</p>
 <p>原型中的判断方式 Object.prototype.toString.call，调用slice（8，-1）就能获取到类型，均能获得</p>
 <p>构造函数的name属性也可以进行判断</p>
 <h3 id="7中基本数据类型"><a href="#7中基本数据类型" class="headerlink" title="7中基本数据类型"></a>7中基本数据类型</h3><p>Number,String,null,BigInt,Symbol,Boolean,Undefined</p>
@@ -167,6 +169,25 @@
 <p>#后面的字符不会发送给服务器 seo（Search Engine Optimization搜索引擎优化）会比较差（没这么容易搜索到） 不会在服务器生成日志记录</p>
 <p>HTML5模式 history是通过history.pushState或者history.replacestate修改url   通过popState监听</p>
 <p>相比来说不带#号 直接在域名后写路径 优雅</p>
+<p>Map Reduce与Filter </p>
+<p>Map（当前值，值索引，数组本身）逐个改变数组，注意是改变，而不会生成一个新的数组</p>
+<p>？如果不return的话也会直接改变数组</p>
+<p>filter（当前值，值索引，数组本身），会删除数组，返回值小于等于原数组长度</p>
+<p>reduce（（累加器，当前值，值索引，数组本身）&#x3D;&gt;{}，累加器初始值）,值，会生成一个新的数组</p>
+<p>foreach没有return，直接改变原数组</p>
+<p>call apply bind</p>
+<p>用处：改变this的指向，实现方法的继承</p>
+<p>function.call(this指向，参数1，参数2)</p>
+<p>function.apply（this指向，[参数]）</p>
+<p>function.bind（this指向，参数）&#x2F;&#x2F;但不是立即执行，返回一个方法，需要手动执行</p>
+<p>let test&#x3D;function.bind()</p>
+<p>test()执行</p>
+<p>手写call方法</p>
+<p>1.原型中进行绑定</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.mycall=function(context,..arg)&#123;</span><br><span class="line"></span><br><span class="line">    if(type of this !==&quot;function&quot;)&#123;</span><br><span class="line">	throw new TypeError(&quot;被调用的对象必须是函数&quot;)</span><br><span class="line">    &#125;;</span><br><span class="line"> 	</span><br><span class="line"> 	context=context||globalThis;</span><br><span class="line"> 	</span><br><span class="line"> 	let fn=Symbol(&quot;key&quot;);</span><br><span class="line"> 	</span><br><span class="line"> 	context[fn]=this;</span><br><span class="line"> 	</span><br><span class="line"> 	const result=context[fn](...arg);</span><br><span class="line"> 	</span><br><span class="line"> 	delete context[fn]</span><br><span class="line"> 	</span><br><span class="line"> 	return result;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+
+
 
             </div>
 
