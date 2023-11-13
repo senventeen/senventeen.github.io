@@ -173,8 +173,7 @@
 <p>#后面的字符不会发送给服务器 seo（Search Engine Optimization搜索引擎优化）会比较差（没这么容易搜索到） 不会在服务器生成日志记录</p>
 <p>HTML5模式 history是通过history.pushState或者history.replacestate修改url   通过popState监听</p>
 <p>相比来说不带#号 直接在域名后写路径 优雅</p>
-<p>Map Reduce与Filter </p>
-<p>Map（当前值，值索引，数组本身）逐个改变数组，注意是改变，而不会生成一个新的数组</p>
+<h3 id="Map-Reduce与Filter"><a href="#Map-Reduce与Filter" class="headerlink" title="Map Reduce与Filter"></a>Map Reduce与Filter</h3><p>Map（当前值，值索引，数组本身）逐个改变数组，注意是改变，而不会生成一个新的数组</p>
 <p>？如果不return的话也会直接改变数组</p>
 <p>filter（当前值，值索引，数组本身），会删除数组，返回值小于等于原数组长度</p>
 <p>reduce（（累加器，当前值，值索引，数组本身）&#x3D;&gt;{}，累加器初始值）,值，会生成一个新的数组</p>
@@ -220,6 +219,19 @@
 <h3 id="单点登录single-sign-on"><a href="#单点登录single-sign-on" class="headerlink" title="单点登录single sign on"></a>单点登录single sign on</h3><p>一个地方登录，所有其他的页面也是登录装态。</p>
 <p>在不同的系统之间再设置一个共享的认证系统，每次进入系统先重定向到认证系统，系统对token资源统一管理。</p>
 <p>主域与子域可以共享cookie 然后实现单点登录</p>
+<h3 id="虚拟dom"><a href="#虚拟dom" class="headerlink" title="虚拟dom"></a>虚拟dom</h3><p>原生js是当数据放生改变时相应的dom进行更新</p>
+<p>但是基础框架的虚拟dom是因为框架本身的一些原因，需要对全局进行一个更新，要知道操作真实dom，而且每一次都是这样牵一发而动全身的话会造成很大的性能损耗，所以就有个虚拟dom，虚拟dom完成了对全局的一个更新，再通过对新旧虚拟dom通过diff算法 进行对比，最后对相应的真实dom进行更新。虚拟dom作为中间层就完成了全量更新以及相对性能损耗较小的目的。</p>
+<p>为了完成响应式的需求</p>
+<h3 id="浏览器渲染原理"><a href="#浏览器渲染原理" class="headerlink" title="浏览器渲染原理"></a>浏览器渲染原理</h3><p>先html</p>
+<p>构建dom-&gt;构建cssom-&gt;构建渲染树-&gt;布局-&gt;绘制</p>
+<p>遇到js代码会阻塞，等到构建渲染树时再将js代码装入。</p>
+<p>1.样式声明（包括自定义与浏览器自带）</p>
+<p>2.计算层叠</p>
+<p>​	比较重要性（自己&gt;浏览器默认）</p>
+<p>​	比较特殊性（权重值）</p>
+<p>​	比较原次序（后来者居上）</p>
+<p>3.如果可以，从父元素中继承</p>
+<p>4.赋予默认值</p>
 
             </div>
 
